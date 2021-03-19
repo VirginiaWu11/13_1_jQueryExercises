@@ -4,31 +4,34 @@
 // Contains a form with two inputs for a title and rating along with a button to submit the form.
 
 $('body').prepend(
-	'<form><input type= "text" id= "title"> <input type= "text" id="rating"> <input type= "submit" id="submit"></form>'
+	'<form><input type= "text" id= "title"> <input type= "number" id="rating"> <input type= "submit" id="submit"></form>'
 );
 
 // When the form is submitted, capture the values for each of the inputs and append them to the DOM along with a button to remove each title and rating from the DOM.
 
 $('form').on('submit', function(e) {
 	e.preventDefault();
-	$('body')
-		.append(`<p id="p1">  ${$('#title').val()}</p>`)
-		.append(`<p id="p2">  ${$('#rating').val()}</p>`)
-		.append(`<button id= "b1"> Delete Title </button>`)
-		.append(`<button id= "b2"> Delete Rating </button>`);
+	$('tbody').append(
+		`<tr id="t1"><td>${$('#title').val()}</td><td> ${$(
+			'#rating'
+		).val()}</td><td><button id="b1"> Delete Title </button></td></tr>`
+	);
+	// .append(`<p id="p2">  ${$('#rating').val()}</p>`)
+	// .append(`<button id= "b1"> Delete Title </button>`)
+	// .append(`<button id= "b2"> Delete Rating </button>`);
 });
 
 // When the button to remove is clicked, remove each title and rating from the DOM.
 
-$('body').on('click', $('#b1'), function() {
-	$('#p1').remove();
-});
-$('body').on('click', $('#b2'), function() {
-	$('#p2').remove();
+$('#body').on('click', function() {
+	$(this).closest('tr').remove();
 });
 
-// $('#b2').on('click', function() {
-// 	$('#p2').append('eee');
+// $('#b1').on('click', function(e) {
+// 	e.remove();
+// });
+// $('body').on('click', $('#b1'), function() {
+// 	$('#t1').remove();
 // });
 
 // Further Study
