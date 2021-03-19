@@ -3,7 +3,7 @@
 // Build an application that uses jQuery to do the following:
 // Contains a form with two inputs for a title and rating along with a button to submit the form.
 
-$('body').prepend(
+$('body').append(
 	'<form><input type= "text" id= "title"> <input type= "number" id="rating"> <input type= "submit" id="submit"></form>'
 );
 
@@ -23,16 +23,9 @@ $('form').on('submit', function(e) {
 
 // When the button to remove is clicked, remove each title and rating from the DOM.
 
-$('#body').on('click', function() {
+$('tbody').on('click', 'button', function() {
 	$(this).closest('tr').remove();
 });
-
-// $('#b1').on('click', function(e) {
-// 	e.remove();
-// });
-// $('body').on('click', $('#b1'), function() {
-// 	$('#t1').remove();
-// });
 
 // Further Study
 // Ensure that the rating of a movie can only be between 0 and 10.
